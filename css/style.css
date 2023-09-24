@@ -1,0 +1,64 @@
+body {
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    color: #000;
+    text-decoration: none;
+    margin-right: 20px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.menu a:hover {
+    color: #6EC1E4;
+    transform: rotate(15deg);
+}
+
+.menu h2 {
+    color: #000;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.hero-body, .container {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.container h1 {
+    color: #000;
+}
+
+.emoji {
+    font-size: 48px;
+    animation: waving 2s infinite;
+    display: inline-block;
+}
+
+@keyframes waving {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
