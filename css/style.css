@@ -5,11 +5,6 @@ body {
     padding: 0;
 }
 
-.menu {
-    display: flex;
-    align-items: center;
-}
-
 .menu a {
     color: #000;
     text-decoration: none;
@@ -62,3 +57,19 @@ body {
         transform: rotate(0deg);
     }
 }
+
+/* Add this to your existing styles */
+.dark-mode, .dark-mode .container h1, .dark-mode .container, .dark-mode .footer, .dark-mode .hero.is-white {
+    background-color: #202020  ; /* Dark background color */
+    color:  #ffaaaa; /* Light text color */
+  }
+  
+  /* Adjust other styles for dark mode as needed */
+  .dark-mode .menu a, .dark-mode a, .dark-mode .hero.is-white .title, .dark-mode .buttons {
+    color:  #ffaaaa;
+  }
+
+  .dark-mode .icon.is-large, .dark-mode #darkModeToggle {
+    background-color: #ffaaaa;
+  }
+  
