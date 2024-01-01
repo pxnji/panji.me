@@ -5,6 +5,12 @@ body {
     padding: 0;
 }
 
+#darkModeToggle {
+    border-radius: 25px;
+    padding: 5px;
+    margin-bottom: 0px;
+}
+
 .section {
     padding: 10rem 1.5rem;
 }
