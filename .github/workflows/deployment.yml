@@ -21,7 +21,8 @@ jobs:
       
       - name: Deploy to VPS
         run: |
-          ssh pxnji@5.161.53.191:/www/wwwroot/panji.me <<EOF
+          ssh pxnji@5.161.53.191
+          sudo cd /www/wwwroot/panji.me
           sudo git clone https://github.com/pxnji/panji.me.git
           sudo cp -r /www/wwwroot/panji.me/panji.me/* .
           sudo rm -rf /www/wwwroot/panji.me/panji.me
