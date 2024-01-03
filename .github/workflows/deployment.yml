@@ -16,12 +16,9 @@ jobs:
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.6.0
         with:
-          ssh-private-key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH7ZhAmqf0Y+JgyHQexxILQP7PAQfyHPVftMiN8FhRFZ 
-          ssh-known-hosts: |
-              5.161.53.191 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/Gzm6Hg5ST5lKQk9DltIakPdVTDufi7MlbLc1vh7AV
-              5.161.53.191 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDjaygGkQlNk/YGhCfgQQ9pCl7DoRVFGwID3ZQQ7WsksTFhA29rdHxvCDgFdFflvC3H7TUjZoF635KRwqenHsno5EFv3q1KkDkocV6V9bfuQrQ6hqWYRq8va4qm/V7/21IKvTPqeERRIzveU54tRwf9S3GnAO2NhjPasfjF8PqKIhYwPaSN9zy0aSKU7UnsisXN2cAIlUZxycOxPK7tk7/PhBSCpgBuqW85GeqOh2zljgb3gyk4QUtMNuAu6jCCaO1rn2ymITWz6Lu+EiSchbcs7ikrAjILzwcxpcdclJ3zg9IBfBuOrLndaDJVt2LY8PWbeL4HSsYJ9ymtwBDJoNjH
-              5.161.53.191 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIGBrOqcQ7NAgAeQGhDRmJNPGRTlyvrHajT3UScoYOBhhHCSIqNKgmdIUL28fOftmmOkSqO5fOymPLwCAjTvbiY=
-              
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      
       - name: Deploy to VPS
         run: |
           ssh pxnji@5.161.53.191:/www/wwwroot/panji.me <<EOF
