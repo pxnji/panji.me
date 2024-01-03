@@ -3,7 +3,7 @@ name: Update Website Panji.me
 on:
   push:
     branches:
-      - main # Change this to your main branch name
+      - main # Change this to your main branch name 
 
 jobs:
   deploy:
@@ -21,10 +21,6 @@ jobs:
       
       - name: Deploy to VPS
         run: |
-          # Replace the following placeholders with your actual deployment steps
-          # For example, you might use SCP or SFTP to transfer your HTML files to the VPS
-          
-          # Example using SFTP
           ssh pxnji@5.161.53.191:/www/wwwroot/panji.me <<EOF
           sudo git clone https://github.com/pxnji/panji.me.git
           sudo cp -r /www/wwwroot/panji.me/panji.me/* .
