@@ -3,7 +3,7 @@ name: Update Website Panji.me
 on:
   push:
     branches:
-      - main # Change this to your main branch name
+      - main # Change this to your main branch name 
 
 jobs:
   deploy:
