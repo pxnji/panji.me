@@ -25,7 +25,7 @@ jobs:
           # For example, you might use SCP or SFTP to transfer your HTML files to the VPS
           
           # Example using SFTP
-          ssh pxnji@pxnji@5.161.53.191:/www/wwwroot/panji.me <<EOF
+          ssh pxnji@5.161.53.191:/www/wwwroot/panji.me <<EOF
           git clone https://github.com/pxnji/panji.me.git
           cp -r /www/wwwroot/panji.me/panji.me/* .
           rm -rf /www/wwwroot/panji.me/panji.me
