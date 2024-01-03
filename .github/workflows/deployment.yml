@@ -16,8 +16,8 @@ jobs:
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.6.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+          ssh-private-key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH7ZhAmqf0Y+JgyHQexxILQP7PAQfyHPVftMiN8FhRFZ 
+          ssh-known-hosts: 5.161.53.191 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/Gzm6Hg5ST5lKQk9DltIakPdVTDufi7MlbLc1vh7AV
       
       - name: Deploy to VPS
         run: |
