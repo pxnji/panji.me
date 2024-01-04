@@ -23,5 +23,5 @@ jobs:
       sshKeySecureFile: 'pxnji'
 
   - script: |
-      bash update-panji.sh
-    displayName: 'Run Commands on VPS'
+      ssh -i $(Agent.TempDirectory)/pxnji/id_rsa pxnji@5.161.53.191 'bash -s' < update-panji.sh
+    displayName: 'Run Bash Script on Server'
