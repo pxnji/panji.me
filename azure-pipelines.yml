@@ -1,0 +1,28 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: Deploy
+  displayName: 'Deploy to VPS'
+  steps:
+  - checkout: self
+
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core sdk'
+    inputs:
+      packageType: 'sdk'
+      version: '3.1.x'
+
+  - task: InstallSSHKey@0
+    inputs:
+      knownHostsEntry: '5.161.53.191 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDjaygGkQlNk/YGhCfgQQ9pCl7DoRVFGwID3ZQQ7WsksTFhA29rdHxvCDgFdFflvC3H7TUjZoF635KRwqenHsno5EFv3q1KkDkocV6V9bfuQrQ6hqWYRq8va4qm/V7/21IKvTPqeERRIzveU54tRwf9S3GnAO2NhjPasfjF8PqKIhYwPaSN9zy0aSKU7UnsisXN2cAIlUZxycOxPK7tk7/PhBSCpgBuqW85GeqOh2zljgb3gyk4QUtMNuAu6jCCaO1rn2ymITWz6Lu+EiSchbcs7ikrAjILzwcxpcdclJ3zg9IBfBuOrLndaDJVt2LY8PWbeL4HSsYJ9ymtwBDJoNjH'
+      sshPublicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDIDjQKL+sC4/w71aS6VefyrwQEtsvG0psVDYNnsCY6gLaiNEH29DojcktP6KEvrGu8S0si6TpGkEZXNjmUox6Ad8gBapTrYOmDr7eiYKN9mK83nLxoZaDehJSpgPzGxvGbUXlvglMeHzp4mBfRlrBuhBplB9R+9gfgf839+HBU9eIaA7YxPYeTVilNSVFIDlRniFlYx0FxjaNJsDi1zBpgClovh2COoE6/OiOiQS7X0rk1lKIzogHLT4BfqS/NLnVocOcCZ75IejM9KhQ/90TaxIa/6erGUIxAWLBgsvf9QLr22ykqZjdf1YM3YZXmhun9lyCupCSfBSZfyj5UkXfEs2wa7heHEYtf6hS+xkbfOX2C9AADH1J2ghjVg+enT+jMmGL2Kxg4pfZS/byGrw9m/yCvJWrCq5UKeQBciMLI6q2HylpwftDJYnA0aa1ZRW+X3cDxa+oLxwqMLRbz59/psLgENd8Rh2h5T13SrJui2xfK8hbGyNe4B9w988uZbKNqln8GSJrQzY7umxYmd+TzU1QWUDA6BxHuA6yH71vVaE28QGSFLmPDSU0SkfzuYbFdgheNLqSqjjSPPrfLB1BJ6NpUdNNSIgH6Z99yG6hu2fteIxcIhdVLMw50SJWkgkOfaH3UOFh0BrWZuKin48gtX5wRmu5skaktcxREcEExhQ== pxnji'
+      sshKeySecureFile: 'pxnji'
+
+  - script: |
+      ssh pxnji@5.161.53.191 bash 
+      update-panji.sh
+    displayName: 'Run Bash Script on Server'
