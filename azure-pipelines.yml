@@ -1,0 +1,31 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: Deploy
+  displayName: 'Deploy to VPS'
+  steps:
+  - checkout: self
+
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core sdk'
+    inputs:
+      packageType: 'sdk'
+      version: '3.1.x'
+
+  - task: InstallSSHKey@0
+    displayName: 'Install SSH key'
+    inputs:
+      knownHostsEntry: ${{ secrets.SSH_KNOWN_HOSTS }}
+      privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+      keyName: 'vps-ssh-key'
+
+  - script: |
+      ssh pxnji@5.161.53.191 "sudo cd /www/wwwroot/panji.me &&
+                              sudo git clone https://github.com/pxnji/panji.me.git &&
+                              sudo cp -r /www/wwwroot/panji.me/panji.me/* . &&
+                              sudo rm -rf /www/wwwroot/panji.me/panji.me"
+    displayName: 'Run Commands on VPS'
