@@ -23,6 +23,10 @@ jobs:
       sshKeySecureFile: 'pxnji'
 
   - script: |
+<<<<<<< HEAD
       ssh pxnji@5.161.53.191 bash 
       update-panji.sh
+=======
+      ssh pxnji@5.161.53.191 bash update-panji.sh
+>>>>>>> azure/main
     displayName: 'Run Bash Script on Server'
