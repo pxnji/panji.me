@@ -83,3 +83,6 @@ body {
     background-color: #ffaaaa;
   }
   
+  .dark-mode .icon.is-large {
+    border-radius: 10px;
+  }
