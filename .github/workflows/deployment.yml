@@ -3,7 +3,7 @@ name: Update Website Panji.me
 on:
   push:
     branches:
-      - main # Change this to your main branch name 
+      - main
 
 jobs:
   deploy:
@@ -18,10 +18,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-      
+
       - name: Deploy to VPS
         run: |
-          ssh $SSH_USER@$SSH_HOST
-          bash update-panji.sh
-          exit
+          ssh $SSH_USER@$SSH_HOST <<EOF
+            bash update-panji.sh
+            # Add more commands if needed
           EOF
