@@ -23,5 +23,4 @@ jobs:
         run: |
           ssh $SSH_USER@$SSH_HOST <<EOF
             bash update-panji.sh
-            # Add more commands if needed
           EOF
